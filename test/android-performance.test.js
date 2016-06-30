@@ -39,4 +39,19 @@ describe('test', function() {
     var res = yield perf.getMeminfoByPackageName('com.android.settings');
     console.log(res);
   });
+  
+  it('should get pid success', function *() {
+    var perf = new AndroidPerformance();
+    yield perf.initDevice();
+    var res = yield perf.getPid('com.android.settings');
+    console.log(res);
+   });
+    
+  it('should get threadcount success', function *() {
+    var perf = new AndroidPerformance();
+    yield perf.initDevice();
+    var pid = yield perf.getPid('com.android.settings');
+    var res = yield perf.getThreadCount(pid);
+    console.log(res);
+  });
 });
