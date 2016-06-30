@@ -71,4 +71,12 @@ describe('test', function() {
     var res = yield perf.getTrafficByUid(uid);  
     console.log(res);
   });
+  
+  it('should get CPU success', function *() {
+    var perf = new AndroidPerformance();
+    yield perf.initDevice();
+    var pid = yield perf.getPid('com.android.settings');
+    var res = yield perf.getCPUByPid(pid);    
+    console.log(res);
+  });
 });
