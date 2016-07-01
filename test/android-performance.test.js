@@ -33,21 +33,21 @@ describe('test', function() {
     });
   });
 
-  it('should get meminfo success', function *() {
+  it('should get meminfo success', function*() {
     var perf = new AndroidPerformance();
     yield perf.initDevice();
     var res = yield perf.getMeminfoByPackageName('com.android.settings');
     console.log(res);
   });
 
-  it('should get pid success', function *() {
+  it('should get pid success', function*() {
     var perf = new AndroidPerformance();
     yield perf.initDevice();
     var res = yield perf.getPid('com.android.settings');
     console.log(res);
-   });
+  });
 
-  it('should get threadcount success', function *() {
+  it('should get threadcount success', function*() {
     var perf = new AndroidPerformance();
     yield perf.initDevice();
     var pid = yield perf.getPid('com.android.settings');
@@ -55,7 +55,7 @@ describe('test', function() {
     console.log(res);
   });
 
-  it('should get uid success', function *() {
+  it('should get uid success', function*() {
     var perf = new AndroidPerformance();
     yield perf.initDevice();
     var pid = yield perf.getPid('com.android.settings');
@@ -63,7 +63,7 @@ describe('test', function() {
     console.log(uid);
   });
 
-  it('should get traffic success', function *() {
+  it('should get traffic success', function*() {
     var perf = new AndroidPerformance();
     yield perf.initDevice();
     var pid = yield perf.getPid('com.android.settings');
@@ -72,7 +72,7 @@ describe('test', function() {
     console.log(res);
   });
 
-  it('should get CPU success', function *() {
+  it('should get CPU success', function*() {
     var perf = new AndroidPerformance();
     yield perf.initDevice();
     var pid = yield perf.getPid('com.android.settings');
