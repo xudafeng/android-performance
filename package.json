@@ -1,6 +1,6 @@
 {
   "name": "android-performance",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Node.js wrapper to android performance with adb",
   "keywords": [
     "android",
