@@ -23,21 +23,21 @@ describe('test', function() {
   it('should get meminfo success', function*() {
     var perf = new AndroidPerformance();
     yield perf.initDevice();
-    var res = yield perf.getMeminfoByPackageName('com.android.settings');
+    var res = yield perf.getMeminfoByPackageName('com.android.phone');
     console.log(res);
   });
 
   it('should get pid success', function*() {
     var perf = new AndroidPerformance();
     yield perf.initDevice();
-    var res = yield perf.getPid('com.android.settings');
+    var res = yield perf.getPid('com.android.phone');
     console.log(res);
   });
 
   it('should get threadcount success', function*() {
     var perf = new AndroidPerformance();
     yield perf.initDevice();
-    var pid = yield perf.getPid('com.android.settings');
+    var pid = yield perf.getPid('com.android.phone');
     var res = yield perf.getThreadCountByPid(pid);
     console.log(res);
   });
@@ -45,7 +45,7 @@ describe('test', function() {
   it('should get uid success', function*() {
     var perf = new AndroidPerformance();
     yield perf.initDevice();
-    var pid = yield perf.getPid('com.android.settings');
+    var pid = yield perf.getPid('com.android.phone');
     var uid = yield perf.getUidByPid(pid);
     console.log(uid);
   });
@@ -53,7 +53,7 @@ describe('test', function() {
   it('should get traffic success', function*() {
     var perf = new AndroidPerformance();
     yield perf.initDevice();
-    var pid = yield perf.getPid('com.android.settings');
+    var pid = yield perf.getPid('com.android.phone');
     var uid = yield perf.getUidByPid(pid);
     var res = yield perf.getTrafficByUid(uid);
     console.log(res);
@@ -62,7 +62,7 @@ describe('test', function() {
   it('should get CPU success', function*() {
     var perf = new AndroidPerformance();
     yield perf.initDevice();
-    var pid = yield perf.getPid('com.android.settings');
+    var pid = yield perf.getPid('com.android.phone');
     var res = yield perf.getCPUByPid(pid);
     console.log(res);
   });
