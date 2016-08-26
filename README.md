@@ -25,6 +25,98 @@
 $ npm i android-performance --save-dev
 ```
 
+## Usage
+
+```javascript
+const perf = new AndroidPerformance();
+const p1 = new Promise((resolve, reject) => {
+  perf
+    .initDevice()
+    .then(() => perf.getMeminfoByPackageName(pkgName))
+    .then(res => {
+      resolve({
+        item: 'Meminfo',
+        data: res
+      });
+    });
+});
+
+const p2 = new Promise((resolve, reject) => {
+  perf
+    .initDevice()
+    .then(() => perf.getPid(pkgName))
+    .then(pid => {
+      return perf
+        .getThreadCountByPid(pid)
+        .then(d => {
+          resolve({
+            item: 'ThreadCount',
+            data: d
+          });
+        })
+        .catch(e => {
+          resolve(null);
+        });
+    })
+    .catch(e => {
+      resolve(null);
+    });
+});
+
+const p3 = new Promise((resolve, reject) => {
+  perf
+    .initDevice()
+    .then(() => perf.getPid(pkgName))
+    .then(pid => {
+      return perf
+        .getUidByPid(pid)
+        .then(uid => {
+          return perf
+            .getTrafficByUid(uid)
+            .then(d => {
+              resolve({
+                item: 'Traffic',
+                data: d
+              });
+            })
+            .catch(e => {
+              resolve(null);
+            });
+        })
+        .catch(e => {
+          resolve(null);
+        });
+    })
+    .catch(e => {
+      resolve(null);
+    });
+});
+
+const p4 = new Promise((resolve, reject) => {
+  perf
+    .initDevice()
+    .then(() => perf.getPid(pkgName))
+    .then(pid => {
+      return perf
+        .getCPUByPid(pid)
+        .then(d => {
+          resolve({
+            item: 'cpu',
+            data: d
+          });
+        })
+        .catch(e => {
+          resolve(null);
+        });
+    });
+});
+
+Promise.all([p1, p2, p3, p4]).then(result => {
+  console.log(`performance：${JSON.stringify(result)}`);
+  done();
+});
+```
+
 ## License
 
 The MIT License (MIT)
