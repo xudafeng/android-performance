@@ -21,7 +21,7 @@
 
 ## Installment
 
-```shell
+```bash
 $ npm i android-performance --save-dev
 ```
 
