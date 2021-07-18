@@ -6,13 +6,14 @@
     "android",
     "performance"
   ],
-  "bin": {
-    "android-performance": "./bin/android-performance"
-  },
+  "files": [
+    "index.js",
+    "lib/*.js"
+  ],
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/macacajs/android-performance.git"
+    "url": "git://github.com/xudafeng/android-performance.git"
   },
   "dependencies": {
     "macaca-adb": "^1.0.16",
@@ -33,6 +34,6 @@
   "pre-commit": [
     "jshint"
   ],
-  "homepage": "https://github.com/macacajs/android-performance",
+  "homepage": "https://github.com/xudafeng/android-performance",
   "license": "MIT"
 }
